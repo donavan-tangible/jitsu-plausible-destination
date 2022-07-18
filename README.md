@@ -3,14 +3,21 @@
 Plausible destination plugin for [Jitsu](https://jitsu.com)
 based on [Jitsu SDK](https://github.com/jitsucom/jitsu-sdk).
 
+
+
 ## Using
+Set config.json:
+```shell
+cp config.json.example config.json
+nano config.json
+```
 
 Install all dependencies for a project
 ```shell
 yarn install
 ```
 
-Build destination
+Build destination:
 ```shell
 yarn build
 ```

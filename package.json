@@ -2,10 +2,10 @@
   "name": "@tangible/jitsu-plausible-destination",
   "version": "1.0.0",
   "description": "A Jitsu's destionation plugin for Plausible",
-  "main": "index.js",
+  "main": "dist/plausible-destination.js",
   "scripts": {
     "test": "jitsu-cli extension test",
-    "build": "jitsu-cli extension build",
+    "build": "jitsu-cli extension build && mv dist/index.js dist/plausible-destination.js",
     "execute": "jitsu-cli extension exec",
     "validate-config": "jitsu-cli extension validate-config"
   },
