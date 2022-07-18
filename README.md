@@ -1,4 +1,4 @@
-# plausible Destination for Jitsu
+# Plausible destination for Jitsu
 
 Plausible destination plugin for [Jitsu](https://jitsu.com)
 based on [Jitsu SDK](https://github.com/jitsucom/jitsu-sdk).
