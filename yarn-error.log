@@ -1,0 +1,67 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn build
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/VMware Fusion.app/Contents/Public:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.13.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/donavanmartin/Desktop/jitsu-plausible-destination/package.json: Unexpected string in JSON at position 219
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "@tangible/jitsu-plausible-destination",
+    "version": "1.0.0",
+    "description": "A Jitsu's destionation plugin for Plausible",
+    "main": "index.js",
+    "scripts": {
+      "test": "jitsu-cli extension test"
+      "build": "jitsu-cli extension build",
+      "execute": "jitsu-cli extension exec",
+      "validate-config": "jitsu-cli extension validate-config"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/donavan-tangible/jitsu-plausible-destination.git"
+    },
+    "keywords": [
+      "Jitsu",
+      "Destionation",
+      "Plugin",
+      "Plausible"
+    ],
+    "author": "Tangible inc.",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/donavan-tangible/jitsu-plausible-destination/issues"
+    },
+    "homepage": "https://github.com/donavan-tangible/jitsu-plausible-destination#readme",
+    "devDependencies": {
+      "jitsu-cli": "^0.7.5"
+    },
+    "dependencies": {
+      "@jitsu/pipeline-helpers": "^0.6.0",
+      "@jitsu/types": "^0.6.0",
+      "tslib": "^2.3.1",
+      "typescript": "^4.5.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

@@ -1,0 +1,37 @@
+{
+  "name": "@tangible/jitsu-plausible-destination",
+  "version": "1.0.0",
+  "description": "A Jitsu's destionation plugin for Plausible",
+  "main": "index.js",
+  "scripts": {
+    "test": "jitsu-cli extension test",
+    "build": "jitsu-cli extension build",
+    "execute": "jitsu-cli extension exec",
+    "validate-config": "jitsu-cli extension validate-config"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/donavan-tangible/jitsu-plausible-destination.git"
+  },
+  "keywords": [
+    "Jitsu",
+    "Destionation",
+    "Plugin",
+    "Plausible"
+  ],
+  "author": "Tangible inc.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/donavan-tangible/jitsu-plausible-destination/issues"
+  },
+  "homepage": "https://github.com/donavan-tangible/jitsu-plausible-destination#readme",
+  "devDependencies": {
+    "jitsu-cli": "^0.7.5"
+  },
+  "dependencies": {
+    "@jitsu/pipeline-helpers": "^0.6.0",
+    "@jitsu/types": "^0.6.0",
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.2"
+  }
+}
