@@ -1,6 +1,6 @@
 {
   "name": "@tangible/jitsu-plausible-destination",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Jitsu's destionation plugin for Plausible",
   "main": "dist/plausible-destination.js",
   "scripts": {
