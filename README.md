@@ -45,6 +45,7 @@ yarn validate-config --config config.json
 ## Developers  
 
 ### Setup with CentOS
+```shell
 docker ps
 yum install epel-release
 yum install dnf
@@ -63,6 +64,7 @@ npx jitsu-cli@0.7.5 extension create --type destination
   [info ] - Project directory doesn't exist, creating it!
   [info ] - ✨ Done
 '''
+```
 
 ### Settings the plugin with Jitsu server (dev)
 
