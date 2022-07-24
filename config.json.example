@@ -1,5 +1,5 @@
 {
 	anonymous: true,
-	plausible_domain: "plausible.tangible.one",
+	plausible_domain: "http://plausible.tangible.one",
 	plausible_port: "8000"
 }

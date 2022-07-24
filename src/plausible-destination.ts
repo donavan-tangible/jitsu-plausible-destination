@@ -40,19 +40,33 @@ export const JitsuPlausible: DestinationFunction<DefaultJitsuEvent, PlausibleDes
     const eventType = getEventType(event);
     let envelops:DestinationMessage[] = [];
 
+    if(config.anonymous){
+      context.source_ip = "000.000.000.000"; // masl ip
+      context.ids.ga = "undefined"; // mask ga
+    }
+
     //on pageview
     if (eventType === "pageview") {
+      context.name = eventType;
+
+      // Add screen resolution
+      var regex_firstDigits = /\d*/;
+      if(typeof context.screen_resolution !== "undefined"){
+        var m = context.screen_resolution.match(regex_firstDigits);
+        if (m) {
+            context.screen_width = m[0]
+        }
+      }
+
       envelops.push({
-        url: "http://"+config.plausible_domain+":"+config.plausible_port+"/api/event"+ JSON.stringify(context),
+        url: config.plausible_domain+":"+config.plausible_port+"/api/event",
         method: "POST",
         headers: {
+            "User-Agent": context.user_agent, // required
+            "X-Forwarded-For": context.source_ip, // required
             "Content-Type": "application/json"
         },
-        body: JSON.stringify({
-          "name": eventType,
-          "url": event.url,
-          "domain": event.domain
-        })
+        body: JSON.stringify(context)
       });
     }
     return envelops;

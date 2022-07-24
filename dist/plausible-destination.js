@@ -28,19 +28,30 @@ const JitsuPlausible = (event, dstContext) => {
     }
     const eventType = getEventType(event);
     let envelops = [];
+    if (config.anonymous) {
+        context.source_ip = "000.000.000.000"; // masl ip
+        context.ids.ga = "undefined"; // mask ga
+    }
     //on pageview
     if (eventType === "pageview") {
+        context.name = eventType;
+        // Add screen resolution
+        var regex_firstDigits = /\d*/;
+        if (typeof context.screen_resolution !== "undefined") {
+            var m = context.screen_resolution.match(regex_firstDigits);
+            if (m) {
+                context.screen_width = m[0];
+            }
+        }
         envelops.push({
-            url: "http://" + config.plausible_domain + ":" + config.plausible_port + "/api/event" + JSON.stringify(context),
+            url: config.plausible_domain + ":" + config.plausible_port + "/api/event",
             method: "POST",
             headers: {
+                "User-Agent": context.user_agent,
+                "X-Forwarded-For": context.source_ip,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                "name": eventType,
-                "url": event.url,
-                "domain": event.domain
-            })
+            body: JSON.stringify(context)
         });
     }
     return envelops;
@@ -53,7 +64,7 @@ const validator = async (config) => {
             throw new Error(`Required property '${prop}' is absent in config. Present props: ${Object.keys(config)}`);
         }
     });
-    const urlEvent = "http://" + config.plausible_domain + ":" + config.plausible_port + "/api/event";
+    const urlEvent = config.plausible_domain + ":" + config.plausible_port + "/api/event";
     let res = await fetch(urlEvent, {
         method: 'post',
         body: JSON.stringify({
@@ -92,7 +103,7 @@ const descriptor = {
             id: "plausible_domain",
             type: "string",
             required: true,
-            displayName: "Plausible server domain",
+            displayName: "Plausible server domain including protocol (http(s)://<domain>)",
             documentation: "Url domain",
         },
         {
@@ -109,4 +120,4 @@ exports.descriptor = descriptor;
 exports.destination = destination;
 exports.validator = validator;
 
-exports.buildInfo = {sdkVersion: "0.7.5", sdkPackage: "jitsu-cli", buildTimestamp: "2022-07-18T13:33:16.382Z"}
+exports.buildInfo = {sdkVersion: "0.7.5", sdkPackage: "jitsu-cli", buildTimestamp: "2022-07-24T14:45:05.420Z"}

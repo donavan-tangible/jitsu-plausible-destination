@@ -9,7 +9,7 @@ const validator: ConfigValidator<PlausibleDestinationConfig> = async (config) =>
             throw new Error(`Required property '${prop}' is absent in config. Present props: ${Object.keys(config)}`);
         }
     })
-    const urlEvent = "http://"+config.plausible_domain + ":" +config.plausible_port + "/api/event";
+    const urlEvent = config.plausible_domain + ":" +config.plausible_port + "/api/event";
     let res = await fetch(urlEvent, {
         method: 'post',
         body: JSON.stringify({
@@ -48,7 +48,7 @@ const descriptor: ExtensionDescriptor<PlausibleDestinationConfig> = {
             id: "plausible_domain",
             type: "string",
             required: true,
-            displayName: "Plausible server domain",
+            displayName: "Plausible server domain including protocol (http(s)://<domain>)",
             documentation: "Url domain",
         },
         {
