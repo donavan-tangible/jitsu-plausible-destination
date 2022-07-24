@@ -40,6 +40,14 @@ export const JitsuPlausible: DestinationFunction<DefaultJitsuEvent, PlausibleDes
     const eventType = getEventType(event);
     let envelops:DestinationMessage[] = [];
 
+    // Remove JITSU fields
+    if(context.JITSU_ENVELOP){
+      delete context["JITSU_ENVELOP"];
+    }
+    if(context.__HTTP_CONTEXT__){
+      delete context["__HTTP_CONTEXT__"];
+    }
+
     if(config.anonymous){
       context.source_ip = "000.000.000.000"; // masl ip
       context.ids.ga = "undefined"; // mask ga
@@ -66,7 +74,7 @@ export const JitsuPlausible: DestinationFunction<DefaultJitsuEvent, PlausibleDes
             "X-Forwarded-For": context.source_ip, // required
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(context)
+        body:context
       });
     }
     return envelops;
