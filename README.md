@@ -3,9 +3,19 @@
 Plausible destination plugin for [Jitsu](https://jitsu.com)
 based on [Jitsu SDK](https://github.com/jitsucom/jitsu-sdk).
 
+## Using Plausible Destination UI
+```shell
+nano docker-compose.yml
+...
+services:
+    jitsu:
+        image: jitsucom/jitsu:tangible
+...
+```
 
+## Developers  
 
-## Using
+### Using
 Set config.json:
 ```shell
 cp config.json.example config.json
@@ -41,8 +51,6 @@ with json file:
 ```shell
 yarn validate-config --config config.json
 ```
-
-## Developers  
 
 ### Setup with CentOS
 ```shell

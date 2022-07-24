@@ -127,4 +127,4 @@ exports.descriptor = descriptor;
 exports.destination = destination;
 exports.validator = validator;
 
-exports.buildInfo = {sdkVersion: "0.7.5", sdkPackage: "jitsu-cli", buildTimestamp: "2022-07-24T14:58:41.679Z"}
+exports.buildInfo = {sdkVersion: "0.7.5", sdkPackage: "jitsu-cli", buildTimestamp: "2022-07-24T15:29:13.499Z"}

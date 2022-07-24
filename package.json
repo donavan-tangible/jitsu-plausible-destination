@@ -1,7 +1,7 @@
 {
   "name": "@tangible/jitsu-plausible-destination",
-  "version": "1.0.2b",
-  "description": "A Jitsu's destionation plugin for Plausible",
+  "version": "1.1.0",
+  "description": "Plausible destination plugin for Jitsu",
   "main": "dist/plausible-destination.js",
   "scripts": {
     "test": "jitsu-cli extension test",
@@ -15,7 +15,7 @@
   },
   "keywords": [
     "Jitsu",
-    "Destionation",
+    "Destination",
     "Plugin",
     "Plausible"
   ],

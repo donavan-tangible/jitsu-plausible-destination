@@ -11,7 +11,7 @@ const testContext: JitsuDestinationContext<PlausibleDestinationConfig> = {
     destinationType: "plausible",
     config: {
         anonymous: true,
-        plausible_domain: "plausible.tangible.one",
+        plausible_domain: "http://plausible.tangible.one",
         plausible_port: "8000"
     }
 }
@@ -28,14 +28,14 @@ testDestination({
             event_type: "pageview",
             name: "pageview",
             domain: testContext.config.plausible_domain,
-            url: "http://"+testContext.config.plausible_domain+":"+testContext.config.plausible_port+"/Jitsu-TestDestination"
+            url: testContext.config.plausible_domain+":"+testContext.config.plausible_port+"/Jitsu-TestDestination"
         },
         expectedResult: [
             {
                 "body": JSON.stringify(
                     {
                         name: "pageview",
-                        url: "http://"+testContext.config.plausible_domain+":"+testContext.config.plausible_port+"/Jitsu-TestDestination",
+                        url: testContext.config.plausible_domain+":"+testContext.config.plausible_port+"/Jitsu-TestDestination",
                         domain: testContext.config.plausible_domain
                     }
                 ),
@@ -43,7 +43,7 @@ testDestination({
                     "Content-Type": "application/json",
                 },
                 "method": "POST",
-                "url": "http://"+testContext.config.plausible_domain+":"+testContext.config.plausible_port+"/api/event"
+                "url": testContext.config.plausible_domain+":"+testContext.config.plausible_port+"/api/event"
             }
         ]
     }
